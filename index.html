@@ -130,6 +130,30 @@
             noClickCount++;
         }
 
+	function acceptProposal() {
+    	    const webhookURL = "https://discord.com/api/webhooks/1471085630128656456/q3Vt4Z2PjgQMdCoqgxcIof80HlVC9-idBfhflx_zm0FBHgCi7ThkH0fe3U13qUhzSXUF";
+
+	    const message = {
+	        content: "🚨 **URGENT UPDATE** 🚨",
+	        embeds: [{
+        	    title: "She said YES! 💖",
+	            description: "Target has accepted the Valentine's proposal. Mission accomplished.",
+	            color: 11982958 // This is a nice pink/purple color
+	        }]
+	    };
+
+    	// This sends the notification to Discord
+	    fetch(webhookURL, {
+	        method: 'POST',
+	        headers: { 'Content-Type': 'application/json' },
+	        body: JSON.stringify(message)
+	    });
+
+    	// Switch views
+	    document.getElementById('main-content').style.display = 'none';
+	    document.getElementById('success-message').style.display = 'block';
+	}
+
         function acceptProposal() {
             document.getElementById('main-content').style.display = 'none';
             document.getElementById('success-message').style.display = 'block';
